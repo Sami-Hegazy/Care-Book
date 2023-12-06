@@ -15,7 +15,7 @@ class OnBoardingLogo extends StatelessWidget {
         10.horizontalSpace,
         Text(
           'CareBook',
-          style: AppTextStyles.font24Black700Weight,
+          style: AppTextStyles.font24BlackBold,
         ),
       ],
     );
