@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 
 void main() {
   setupGetIt();
-  runApp(CareBookApp(
-    appRouter: AppRouter(),
-  ));
+  runApp(
+    CareBookApp(
+      appRouter: AppRouter(),
+    ),
+  );
 }
