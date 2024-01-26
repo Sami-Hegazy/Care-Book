@@ -1,8 +1,7 @@
 import 'package:care_book/core/theming/styles.dart';
 import 'package:care_book/core/widgets/app_text_button.dart';
-import 'package:care_book/features/login/data/models/login_request_body.dart';
 import 'package:care_book/features/login/logic/cubit/login_cubit.dart';
-import 'package:care_book/features/login/ui/widgets/already_have_account_text.dart';
+import 'package:care_book/features/login/ui/widgets/not_have_account_text.dart';
 import 'package:care_book/features/login/ui/widgets/email_and_password.dart';
 import 'package:care_book/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:care_book/features/login/ui/widgets/terms_and_conditions_text.dart';
@@ -56,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                     20.verticalSpace,
                     const TermsAndConditionsText(),
                     60.verticalSpace,
-                    const AlreadyHaveAccountText(),
+                    const DoNotHaveAccountText(),
                     const LoginBlocListener(),
                   ],
                 ),
@@ -70,12 +69,7 @@ class LoginScreen extends StatelessWidget {
 
   void validateThenDoLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginState(
-            LoginRequestBody(
-              email: context.read<LoginCubit>().emailController.text,
-              password: context.read<LoginCubit>().passwordController.text,
-            ),
-          );
+      context.read<LoginCubit>().emitLoginState();
     }
   }
 }
